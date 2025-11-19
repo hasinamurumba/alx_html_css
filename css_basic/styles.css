@@ -1,36 +1,48 @@
-/* Make the body a flex container in a column layout */
+/* Body flex layout: vertical stacking */
 body {
     display: flex;
     flex-direction: column;
-    margin: 0; /* Remove default body margin for cleaner layout */
-    min-height: 100vh; /* Ensure it takes the full viewport height */
+    margin: 0;
+    min-height: 100vh;
 }
 
-/* Make main a flex container in a row layout */
+/* Main flex layout: horizontal for article + aside */
 main {
     display: flex;
     flex-direction: row;
-    flex: auto; /* Automatically take remaining space */
+    flex: auto;
 }
 
-/* Article should take 2/3 of the width, allow vertical scrolling */
+/* Article takes 2/3 width, scrollable */
 article {
-    flex: 2; /* Takes up 2 boxes out of 3 */
+    flex: 2;
     overflow-y: auto;
-    padding: 1rem; /* Optional padding for readability */
+    padding: 1rem;
+    background-color: #e8f0fe; /* optional background to visualize layout */
 }
 
-/* Aside should take 1/3 of the width, allow vertical scrolling */
+/* Aside takes 1/3 width, scrollable */
 aside {
-    flex: 1; /* Takes up 1 box out of 3 */
+    flex: 1;
     overflow-y: auto;
-    padding: 1rem; /* Optional padding for readability */
+    padding: 1rem;
+    background-color: #fce8e6; /* optional background to visualize layout */
 }
 
-/* Optional: styling header and footer to visualize them */
+/* Header and footer styling */
 header, footer {
     padding: 1rem;
-    background-color: #f0f0f0; /* Light gray background */
+    background-color: #f0f0f0;
     text-align: center;
 }
 
+/* Responsive layout for smartphones */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* Stack article and aside vertically */
+    }
+
+    article, aside {
+        flex: auto; /* Take full width */
+    }
+}
