@@ -1,9 +1,7 @@
 CSS Advanced — ALX Frontend Project
 
-This project builds on the HTML, advanced** project by adding full visual styling using pure CSS.  
+This project builds on the HTML, advanced project by adding full visual styling using pure CSS.  
 The goal is to recreate the final design shown in the provided Figma file using clean, responsive, and well-structured CSS — without using any external libraries or frameworks.
-
----
 
  Project Overview
 
