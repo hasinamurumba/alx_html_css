@@ -1,1 +1,65 @@
 
+/* ---------- OUR RESULTS SECTION ---------- */
+.our-results {
+    background: url("images/headphones_hero_2.jpg") no-repeat center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.results-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+/* Reusable card structure, same idea as icon-card */
+.result-card {
+    flex: 1 1 calc(25% - 40px);
+    min-width: 200px;
+}
+
+/* Pentagon shape using clip-path */
+.pentagon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    background: var(--primary-color);
+    clip-path: polygon(
+        50% 0%,
+        100% 38%,
+        82% 100%,
+        18% 100%,
+        0 38%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pentagon span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.result-card p {
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+/* ---------- MOBILE (≤480px) ---------- */
+@media (max-width: 480px) {
+    .results-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .pentagon {
+        width: 150px;
+        height: 150px;
+    }
+}
