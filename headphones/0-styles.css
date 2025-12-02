@@ -1,1 +1,151 @@
+/* ------------ RESET ------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ------------ VARIABLES ------------ */
+:root {
+    --primary-color: #FF6565;
+    --text-light: #ffffff;
+    --max-width: 1000px;
+    --font-main: "Source Sans Pro", sans-serif;
+}
+
+/* ------------ GLOBAL ------------ */
+body {
+    font-family: var(--font-main);
+    background: #000;
+    color: var(--text-light);
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ------------ HEADER ------------ */
+.header {
+    padding: 20px 0;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+}
+
+.nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+.nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav a:hover,
+.nav a:active {
+    color: var(--primary-color);
+}
+
+/* Mobile menu hidden in desktop */
+.hamburger {
+    display: none;
+}
+
+/* ------------ HERO ------------ */
+.hero {
+    height: 100vh;
+    background: url("images/headphones_hero_1.jpg") no-repeat center/cover;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-content h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: var(--primary-color);
+    padding: 15px 40px;
+    border-radius: 25px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+    opacity: 0.9;
+}
+
+.hero-text {
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* ------------ MOBILE (<480px) ------------ */
+@media (max-width: 480px) {
+
+    /* Hide desktop nav */
+    .nav {
+        display: none;
+    }
+
+    /* Show hamburger */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-light);
+    }
+
+    .hero {
+        background: url("images/headphones_hero_mobile.jpg") no-repeat center/cover;
+        padding-top: 120px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+}
 
