@@ -1,1 +1,131 @@
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+}
+
+/* LAYOUT */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* HEADER */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo { height: 40px; }
+
+/* NAVIGATION (DESKTOP) */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+.nav-links a:hover {
+    color: #FF6565;
+}
+
+/* HAMBURGER ICON (HIDDEN ON DESKTOP) */
+.hamburger {
+    width: 30px;
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 100%;
+    background: #fff;
+    transition: 0.3s ease;
+}
+
+/* MOBILE MENU */
+@media (max-width: 480px) {
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: rgba(0,0,0,0.95);
+        flex-direction: column;
+        width: 180px;
+        padding: 20px;
+        border-radius: 8px;
+        gap: 16px;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* ANIMATED HAMBURGER TRANSFORM */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+}
+
+/* FADE ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* HERO */
+.hero {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: url("images/headphones_hero.jpg") center/cover no-repeat;
+}
+.hero-content h1 { font-size: 2rem; }
+
+/* SECTIONS */
+section {
+    padding: 100px 0;
+}
+
+.footer {
+    text-align: center;
+    padding: 40px 0;
+    opacity: 0.5;
+}
 
