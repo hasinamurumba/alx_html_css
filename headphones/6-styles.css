@@ -1,1 +1,196 @@
+/* ---------- RESET & BASICS ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body { height: 100%; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+/* ---------- VARIABLES ---------- */
+:root{
+  --max-width: 1000px;
+  --primary: #FF6565;
+  --muted: #666;
+  --bg-dark: #0b0b0b;
+  --white: #ffffff;
+  --card-gap: 32px;
+  --break-mobile: 480px;
+  --font-main: "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* ---------- LAYOUT ---------- */
+body{
+  font-family: var(--font-main);
+  background: #000;
+  color: var(--white);
+  line-height: 1.45;
+}
+
+.container{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- HEADER ---------- */
+.header{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  padding: 20px 0;
+}
+.header-content{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{ height:40px; }
+.nav ul{ display:flex; gap:28px; align-items:center; }
+.nav a{ color:var(--white); text-decoration:none; font-weight:600; }
+.nav a:hover{ color:var(--primary); }
+.hamburger{ display:none; }
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height: 56vh;
+  display:flex;
+  align-items:center;
+  text-align:center;
+  padding: 100px 0 60px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+}
+.hero-content h1{ font-size:2rem; margin-bottom:12px; }
+.hero-text{ color: #dcdcdc; margin-bottom:18px; }
+.btn-primary{
+  display:inline-block;
+  background:var(--primary);
+  color:var(--white);
+  text-decoration:none;
+  padding:12px 28px;
+  border-radius:24px;
+  font-weight:700;
+}
+.btn-primary:hover{ opacity:0.9; }
+
+/* ---------- WHAT WE DO ---------- */
+.what-we-do{
+  background:#fff;
+  color:#000;
+  padding:48px 0;
+  text-align:center;
+}
+.section-title{ font-size:1.8rem; margin-bottom:10px; color:inherit; }
+.section-description{ max-width:720px; margin:0 auto 26px; color: #333; }
+
+/* ---------- OUR RESULTS (NO IMAGE) ---------- */
+.our-results{
+  background: linear-gradient(180deg, rgba(15,15,15,0.98), rgba(8,8,8,0.98));
+  color:var(--white);
+  padding:72px 0;
+  text-align:center;
+}
+.results-list{
+  display:flex;
+  gap:var(--card-gap);
+  justify-content:space-between;
+  align-items:flex-start;
+  margin-top:34px;
+  flex-wrap:wrap;
+}
+
+/* Reusable card */
+.result-card{
+  flex:1 1 calc(25% - var(--card-gap));
+  min-width:180px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* ---------- PENTAGON ---------- */
+/* We use clip-path to form a pentagon.
+   Structure: .pentagon > .pentagon-face > .stat
+   The .pentagon element creates padding and responsive scaling; the face is the colored shape.
+*/
+
+.pentagon{
+  width: 120px;
+  height: 120px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:18px;
+  /* center the inner face for possible 3D/shine effects */
+  position:relative;
+}
+
+/* The visible pentagon face */
+.pentagon-face{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  clip-path: polygon(
+    50% 0%,
+    100% 38%,
+    82% 100%,
+    18% 100%,
+    0 38%
+  );
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  transform-origin: center center;
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+/* stat text */
+.stat{
+  font-size:1.25rem;
+  font-weight:800;
+  color: #fff;
+}
+
+/* hover effect for desktops */
+.result-card:hover .pentagon-face{
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.55);
+}
+
+/* Different color variants for each pentagon */
+.pentagon--a .pentagon-face{ background: linear-gradient(180deg, #ff8a8a 0%, #ff6565 100%); }
+.pentagon--b .pentagon-face{ background: linear-gradient(180deg, #6ec6ff 0%, #4aa8ff 100%); }
+.pentagon--c .pentagon-face{ background: linear-gradient(180deg, #9dffb6 0%, #5ae07a 100%); }
+.pentagon--d .pentagon-face{ background: linear-gradient(180deg, #ffd27a 0%, #ffb84a 100%); }
+
+/* label under each pentagon */
+.result-label{
+  color:#ddd;
+  margin-top:8px;
+  font-weight:600;
+  opacity:0.95;
+}
+
+/* ---------- FOOTER ---------- */
+.footer{ background:var(--bg-dark); color:var(--white); padding:36px 0; text-align:center; }
+.footer-container{ display:flex; align-items:center; justify-content:center; gap:16px; flex-direction:column; }
+.footer-text{ opacity:0.7; font-size:0.95rem; }
+
+/* ---------- RESPONSIVE: MOBILE ---------- */
+@media (max-width: 480px){
+  .nav{ display:none; }
+  .hamburger{ display:block; }
+  .hero{ padding: 120px 0 40px; }
+  .results-list{
+    flex-direction:column;
+    align-items:center;
+    gap:28px;
+  }
+  .result-card{ flex: 0 1 260px; }
+  .pentagon{ width:150px; height:150px; }
+  .stat{ font-size:1.35rem; }
+}
+
+/* ---------- RESPONSIVE: TABLET/LARGER ---------- */
+@media (min-width: 1200px){
+  .pentagon{ width:140px; height:140px; }
+  .stat{ font-size:1.35rem; }
+}
 
