@@ -1,1 +1,55 @@
+/* ---------- CONTACT SECTION ---------- */
+.contact {
+    background: #ffffff;
+    color: #000;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.contact-form {
+    max-width: 450px;
+    margin: 40px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Inputs & textarea */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover & focus animation */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    transform: scale(1.02);
+}
+
+.contact-form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* Button */
+.contact-btn {
+    width: 150px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ---------- MOBILE (≤480px) ---------- */
+@media (max-width: 480px) {
+    .contact-form {
+        padding: 0 15px;
+    }
+}
 
